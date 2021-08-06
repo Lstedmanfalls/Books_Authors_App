@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="add_book">
+            <h1>Add a New Author</h1>
+            <form action="/authors/create_author" method="POST">
+            {% csrf_token %}
+                <label for="first_name">First Name</label>
+                <input name="first_name" type="text" required>
+                <label for="last_name">Last Name</label>
+                <input name="last_name" type="text" required>
+                <button type="submit">Add Author</button>
+            </form>
+        </div>
+        
+        <div id="author_list">
+            <h1>List of Authors</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        {% for author in all_the_authors %}
+                    <tr>
+                        <td>{{author.id}}</td>
+                        <td>{{author.first_name}} {{author.last_name}}</td>
+                        <td><a href="/authors/{{author.id}}">View author profile</a></td>
+                    </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div id="view_books">
+            <a href="/">View All the Books</a>
+        </div>        
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+html{
+    font-size:10px;
+}
+
+#wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    padding:3rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+#books{
+    display:flex;
+    flex-direction:column;
+}
+
+form{
+    font-size:3rem;
+}
+
+table{
+    display:flex;
+    flex-direction: column;
+}
+
+h1{
+    font-size:5rem;
+}
+
+th{
+    font-size:3rem;
+}
+
+td, a{
+    font-size:2rem;
+}
